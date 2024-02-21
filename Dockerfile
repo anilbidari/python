@@ -9,6 +9,7 @@ ADD . /app
 
 # execute everyone's favorite pip command, pip install -r
 RUN pip install -r requirements.txt
+RUN pip install --upgrade itsdangerous Flask
 
 # unblock port 80 for the Flask app to run on
 EXPOSE 80
