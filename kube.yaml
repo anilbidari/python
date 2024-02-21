@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: py-app
+spec:
+  replicas: 3
+  selector:
+    app: python
+  template:
+    metadata:
+      name: python
+      labels:
+        app: python
+    spec:
+      containers:
+      - name: python-container
+        image: anilbidari/myapp:1.0
+        ports:
+        - containerPort: 80
