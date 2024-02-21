@@ -1,0 +1,15 @@
+---
+- hosts: deployment-server
+  become_user: ubuntu //Node name of your environment 
+  tasks:
+
+  - name: Download jar file
+    get_url:
+      url: http://18.143.133.73:8081/repository/maven-releases/app.v.8.zip
+      dest: /home/ubuntu/
+
+  - name: unzip app package
+    shell:  unzip app.v.8.zip
+    
+  - name: run jar file
+    shell:  python app.py
